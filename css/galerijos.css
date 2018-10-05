@@ -4,4 +4,8 @@
 
 .sheetai .aktyvus{
     display: block;
+    border: 1px solid green;
+}
+.tabai .aktyvus {
+    color: green;
 }

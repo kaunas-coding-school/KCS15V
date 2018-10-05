@@ -1,34 +1,35 @@
 function sleptiViska()
 {
     var sheetai = document.getElementsByClassName('sheet');
+    var tabai = document.getElementsByClassName('tab');
 
     for (var i = 0; sheetai.length > i; i++){
         var elementas = sheetai[i];
         elementas.style.display = 'none';
+        elementas.classList.remove('aktyvus');
     }
-}
 
-function rodyti(id)
-{
-    var elementas = document.getElementById(id);
-    elementas.style.display = 'block';
-}
-
-function gautiId(element)
-{
-    var atributai = element.attributes;
-    for (var i = 0; atributai.length > i; i++) {
-        var atributas = atributai[i];
-        if (atributas.name === 'href') {
-            return atributas.value.substr(1);
+    for (var j = 0; tabai.length > j; j++){
+        var tab = tabai[j];
+        if (tab.classList.contains('aktyvus')) {
+            tab.classList.remove('aktyvus');
         }
     }
+}
 
-    return null;
+function rodyti(selector)
+{
+    var elementas = document.getElementById(selector);
+    elementas.style.display = 'block';
+    elementas.classList.add('aktyvus');
+
+    var tabas = document.getElementsByClassName(selector)[0];
+    tabas.classList.add('aktyvus');
+
 }
 
 document.getElementsByClassName('csharp')[0].addEventListener('click', function () {
-    sleptiViska();
+    sleptiViska('java');
     rodyti('csharp');
 });
 
